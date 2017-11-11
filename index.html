@@ -6,7 +6,6 @@
 <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/x-icon" href="img/apple.ico"/>
 <title>Fantasy</title>
-
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="src/css/mag.css" />
 <link rel="stylesheet" href="src/theme/default.css" />
@@ -50,7 +49,7 @@ p{margin: 0;padding: 0;}
 
 </head>
 
-<body>
+<body ondragstart="window.event.returnValue=false"  oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false"> 
 <h1 align="center">My First Html</h1>
 <div id="clock">
     <p class="date">{{ date }}</p>
@@ -64,7 +63,9 @@ Here are some web links:
 <a href="http://w3school.com.cn/" target="_blank" title="网站建设教程">w3school</a>
 <a href="http://www.17sucai.com/" target="_blank" title="网页特效`网页模板`网站模板">jQuery</a></br>
 It's a game, but only computer can play:
-<a href="airplane.html">Airplane</a>
+<a href="airplane.html">Airplane</a></br>
+Periodic table of elements:
+<a href="elements.html">Elements</a>
 </p>
 
 <div class="container mt50">

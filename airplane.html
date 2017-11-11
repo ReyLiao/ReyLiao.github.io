@@ -2,28 +2,25 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>飞行游戏</title>
+<link rel="shortcut icon" type="image/x-icon" href="img/apple.ico"/>
+<title>Airplane</title>
 
 <style>
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  color: white;
-  font-family: Courier New, Courier, monospace;
-}
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	color: white;
+	font-family: Courier New, Courier, monospace;}
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after {box-sizing: border-box;}
 
 .GUI {
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
-  left: 0;
-}
+  left: 0;}
 
 .score {
   position: absolute;
@@ -127,7 +124,7 @@ body {
 }
 </style>
 </head>
-<body>
+<body ondragstart="window.event.returnValue=false"  oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false"> 
 
 <script type="text/javascript" src="js/three.min.js"></script>
 
