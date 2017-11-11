@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/x-icon" href="img/apple.ico"/>
+<title>Fantasy</title>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="src/css/mag.css" />
+<link rel="stylesheet" href="src/theme/default.css" />
+<link rel="stylesheet" href="css/index.css" />
+
+<style type="text/css">
+.controls-btns button{color: #333;}
+.mt50{margin-top: 50px;}
+
+html, body{height: 100%;}
+
+body{
+	background: #0f3854;
+	background: -webkit-radial-gradient(center ellipse, #0a2e38 0%, #000000 70%);
+	background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
+	background-size: 100%;}
+
+p{margin: 0;padding: 0;}
+
+#clock{
+	font-family: 'Share Tech Mono', monospace;
+	color: #ffffff;
+	text-align: center;
+	position: absolute;
+	left: 88%;
+	top: 7%;
+	-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+	color: #FFFF00;
+	text-shadow: 0 0 5px #FF00FF, 0 0 20px rgba(10, 175, 230, 0);}
+  
+#clock .time{
+	letter-spacing: 0.05em;
+	font-size: 42px;
+	padding: 0;}
+  
+#clock .date{
+	letter-spacing: 0.1em;
+	font-size: 17px;}
+</style>
+
+</head>
+
+<body ondragstart="window.event.returnValue=false"  oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false"> 
+<h1 align="center">A simple web page</h1>
+<div id="clock">
+    <p class="date">{{ date }}</p>
+    <p class="time">{{ time }}</p>
+</div>
+<hr/>
+
+<p style="ont-family:arial;color:green;font-size:20px;text-align:center;">
+Here are some web links:</br>
+If you are interested in the construction site,</br>can visit the following Web Learning</br>
+<a href="http://w3school.com.cn/" target="_blank" title="网站建设教程">w3school</a></br>
+<a href="https://github.com/" target="_blank" title="开源代码库">Github</a></br>
+<a href="http://www.17sucai.com/" target="_blank" title="网页特效`网页模板`网站模板">jQuery</a></br>
+It's a game,but only a few browsers can play:
+<a href="airplane.html" title="飞机小游戏">Airplane</a></br>
+It's Periodic table of elements,so cool:
+<a href="elements.html" title="元素周期表">Elements</a></br>
+</p>
+
+<div class="container mt50">
+	<main>
+	
+	  	<div class="row mag-eg-row">
+		  <div class="col col-md-6">
+			<div class="mag-eg-el-wrap img-thumbnail">
+			  <div class="proportion">
+				<div mag-thumb="inner" class="mag-eg-el">
+				  <img src="img/bilibili/男孩子min.jpg" />
+				</div>
+				<div mag-zoom="inner" class="mag-eg-el">
+				  <img src="img/bilibili/男孩子max.jpg" />
+				</div>
+				<div class="filler"></div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="col col-md-6">
+			<div class="mag-eg-doc">		  
+			</div>
+		  </div>
+		</div>
+		
+		<div class="row mag-eg-row">
+		  <div class="col col-md-6">
+			<div class="mag-eg-el-wrap img-thumbnail">
+			  <div class="proportion">
+				<div mag-thumb="outer" class="mag-eg-el">
+				  <img src="img/bilibili/刁民min.jpg" />
+				</div>
+				<div class="filler"></div>
+			  </div>
+			</div>
+			<div class="mag-eg-el-wrap img-thumbnail" style="height:auto;width:auto">
+			  <div style="height: 300px; width: 300px">
+				<div mag-zoom="outer" class="mag-eg-el" style="float: right;position:relative;overflow:hidden;">
+				  <img src="img/bilibili/刁民max.jpg" />
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	
+	</main>
+</div>
+
+<address align="right">
+<var>E</var> = <var>m</var> <var>c</var><sup>2</sup><br/>
+Written by <a href="https://mail.qq.com/" target="_blank" title="QQ邮箱">804397916@qq.com</a><br/>
+My lofter <a href="http://804397916.lofter.com/" target="_blank" title="lofter">fantasy</a><br/>
+Rey Liao<br/>
+</address>
+
+<script type="text/javascript" color="255,0,255" opacity="1" zIndex="-1" count="100" src="js/jquery.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.bridget.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/jquery.event.drag.js"></script>
+<script src="js/screenfull.js"></script>
+<script src="js/hammer.min.js"></script>
+<script src="js/PreventGhostClick.js"></script>
+<script src="src/js/mag-analytics.js"></script>
+<script src="src/js/mag.js"></script>
+<script src="src/js/mag-jquery.js"></script>
+<script src="src/js/mag-control.js"></script>
+<script src="js/index.js"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script>
+var clock = new Vue({el: '#clock',data: {time: '',date: ''}});
+var week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+var timerID = setInterval(updateTime, 1000);
+updateTime();
+function updateTime(){
+    var cd = new Date();
+    clock.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
+    clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth()+1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];};
+function zeroPadding(num, digit){
+    var zero = '';
+    for(var i = 0; i < digit; i++)
+	{zero += '0';}
+    return (zero + num).slice(-digit);}</script>
+
+</body>
+</html>

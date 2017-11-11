@@ -1,154 +1,223 @@
-<!doctype html>
-<html lang="zh">
+﻿<!doctype html>
+<html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
 <link rel="shortcut icon" type="image/x-icon" href="img/apple.ico"/>
 <title>Fantasy</title>
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="src/css/mag.css" />
-<link rel="stylesheet" href="src/theme/default.css" />
-<link rel="stylesheet" href="css/index.css" />
 
-<style type="text/css">
-.controls-btns button{color: #333;}
-.mt50{margin-top: 50px;}
+<style>
+html, body {
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 4.2vmin;
+	line-height: 4.7vmin;
+	color: rgba(255,255,255,0.6);
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: rgba(66,39,71,1);
+	background: -moz-linear-gradient(top, rgba(66,39,71,1) 0%, rgba(43,25,46,1) 73%, rgba(19,11,20,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(66,39,71,1)), color-stop(73%, rgba(43,25,46,1)), color-stop(100%, rgba(19,11,20,1)));
+	background: -webkit-linear-gradient(top, rgba(66,39,71,1) 0%, rgba(43,25,46,1) 73%, rgba(19,11,20,1) 100%);
+	background: -o-linear-gradient(top, rgba(66,39,71,1) 0%, rgba(43,25,46,1) 73%, rgba(19,11,20,1) 100%);
+	background: -ms-linear-gradient(top, rgba(66,39,71,1) 0%, rgba(43,25,46,1) 73%, rgba(19,11,20,1) 100%);
+	background: linear-gradient(to bottom, rgba(66,39,71,1) 0%, rgba(43,25,46,1) 73%, rgba(19,11,20,1) 100%);}
+	
+a {color: rgba(255,255,255,0.6);}
 
-html, body{height: 100%;}
-
-body{
-	background: #0f3854;
-	background: -webkit-radial-gradient(center ellipse, #0a2e38 0%, #000000 70%);
-	background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
-	background-size: 100%;}
-
-p{margin: 0;padding: 0;}
-
-#clock{
-	font-family: 'Share Tech Mono', monospace;
-	color: #ffffff;
-	text-align: center;
+#lampadario {
+	position: fixed;
+	left: 50%;
+	top: 0;}
+#filo {
+	position: relative;
+	background-color: #000000;
+	width: 2px;
+	height: 150px;
+	left: 50%;
+	margin-left: -1px;
+	z-index: 1;
+	-webkit-transform-origin: 0% 0%;
+	   -moz-transform-origin: 0% 0%;
+		-ms-transform-origin: 0% 0%;
+		 -o-transform-origin: 0% 0%;
+			transform-origin: 0% 0%;
+	-webkit-animation: oscillaFilo .9s ease-in-out 0s infinite alternate;
+	   -moz-animation: oscillaFilo .9s ease-in-out 0s infinite alternate;
+		-ms-animation: oscillaFilo .9s ease-in-out 0s infinite alternate;
+		 -o-animation: oscillaFilo .9s ease-in-out 0s infinite alternate;
+			animation: oscillaFilo .9s ease-in-out 0s infinite alternate;}
+#filo:after {
+	content: " ";
+	left: -5px;
+	top: 100%;
 	position: absolute;
-	left: 88%;
-	top: 7%;
-	-webkit-transform: translate(-50%, -50%);
-			transform: translate(-50%, -50%);
-	color: #FFFF00;
-	text-shadow: 0 0 5px #FF00FF, 0 0 20px rgba(10, 175, 230, 0);}
-  
-#clock .time{
-	letter-spacing: 0.05em;
-	font-size: 42px;
-	padding: 0;}
-  
-#clock .date{
-	letter-spacing: 0.1em;
-	font-size: 17px;}
+	border-bottom: 15px solid #000000;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	height: 0;
+	width: 4px;}
+#lampadina {position:relative;}
+input[value="off"]:checked ~
+#filo {
+	-webkit-box-shadow: -80px -10px 7px 0 rgba(0,0,0,0.1);
+	   -moz-box-shadow: -80px -10px 7px 0 rgba(0,0,0,0.1);
+		-ms-box-shadow: -80px -10px 7px 0 rgba(0,0,0,0.1);
+		 -o-box-shadow: -80px -10px 7px 0 rgba(0,0,0,0.1);
+			box-shadow: -80px -10px 7px 0 rgba(0,0,0,0.1);}
+input[value="off"]:checked ~
+#filo:after {
+	-webkit-box-shadow: -80px -10px 10px -2px rgba(0,0,0,0.1);
+	   -moz-box-shadow: -80px -10px 10px -2px rgba(0,0,0,0.1);
+		-ms-box-shadow: -80px -10px 10px -2px rgba(0,0,0,0.1);
+		 -o-box-shadow: -80px -10px 10px -2px rgba(0,0,0,0.1);
+			box-shadow: -80px -10px 10px -2px rgba(0,0,0,0.1);}
+input {
+	position: absolute;
+	width: 90px;
+	height: 70px;
+	top: 150px;
+	margin-left:-45px;
+	opacity: 0;
+	z-index: 1;
+	cursor: pointer;}
+
+input[value="on"] {top: 150px;}
+input[value="off"] {top: -100px;}
+input[value="on"]:checked {top: -100px;}
+input[value="on"]:checked + input[value="off"] {top: 150px;}
+
+label {
+	width: 51px;
+	height: 51px;
+	top: 164px;
+	position: absolute;
+	left: 0;
+	margin-left: -24px;
+	-webkit-border-radius: 100%;
+	   -moz-border-radius: 100%;
+		-ms-border-radius: 100%;
+		 -o-border-radius: 100%;
+			border-radius: 100%;
+	-webkit-animation: oscillaLampadina .9s ease-in-out 0s infinite alternate;
+	   -moz-animation: oscillaLampadina .9s ease-in-out 0s infinite alternate;
+		-ms-animation: oscillaLampadina .9s ease-in-out 0s infinite alternate;
+		 -o-animation: oscillaLampadina .9s ease-in-out 0s infinite alternate;
+			animation: oscillaLampadina .9s ease-in-out 0s infinite alternate;}           
+input[value="off"]:checked ~
+label {
+	background: rgba(255,255,255,0.03);
+	-webkit-box-shadow: inset 0px 1px 5px rgba(255,255,255,0.1), inset 0px 2px 20px rgba(255,255,255,0.07), -80px -15px 15px -5px rgba(0,0,0,0.1);
+	   -moz-box-shadow: inset 0px 1px 5px rgba(255,255,255,0.1), inset 0px 2px 20px rgba(255,255,255,0.07), -80px -15px 15px -5px rgba(0,0,0,0.1);
+		-ms-box-shadow: inset 0px 1px 5px rgba(255,255,255,0.1), inset 0px 2px 20px rgba(255,255,255,0.07), -80px -15px 15px -5px rgba(0,0,0,0.1);
+		 -o-box-shadow: inset 0px 1px 5px rgba(255,255,255,0.1), inset 0px 2px 20px rgba(255,255,255,0.07), -80px -15px 15px -5px rgba(0,0,0,0.1);
+			box-shadow: inset 0px 1px 5px rgba(255,255,255,0.1), inset 0px 2px 20px rgba(255,255,255,0.07), -80px -15px 15px -5px rgba(0,0,0,0.1);
+}
+input[value="on"]:checked ~
+label {
+	background: rgba(255,255,255,1);
+	-webkit-box-shadow: 0px 0px 10px rgba(255,255,255,0.8), 0px 0px 30px rgba(255,255,255,0.8), 0px 0px 50px rgba(255,255,255,0.6), 0px 0px 70px rgba(255,255,255,0.6), -80px -15px 120px 0px rgba(255,255,255,0.4);
+	   -moz-box-shadow: 0px 0px 10px rgba(255,255,255,0.8), 0px 0px 30px rgba(255,255,255,0.8), 0px 0px 50px rgba(255,255,255,0.6), 0px 0px 70px rgba(255,255,255,0.6), -80px -15px 120px 0px rgba(255,255,255,0.4);
+		-ms-box-shadow: 0px 0px 10px rgba(255,255,255,0.8), 0px 0px 30px rgba(255,255,255,0.8), 0px 0px 50px rgba(255,255,255,0.6), 0px 0px 70px rgba(255,255,255,0.6), -80px -15px 120px 0px rgba(255,255,255,0.4);
+		 -o-box-shadow: 0px 0px 10px rgba(255,255,255,0.8), 0px 0px 30px rgba(255,255,255,0.8), 0px 0px 50px rgba(255,255,255,0.6), 0px 0px 70px rgba(255,255,255,0.6), -80px -15px 120px 0px rgba(255,255,255,0.4);
+			box-shadow: 0px 0px 10px rgba(255,255,255,0.8), 0px 0px 30px rgba(255,255,255,0.8), 0px 0px 50px rgba(255,255,255,0.6), 0px 0px 70px rgba(255,255,255,0.6), -80px -15px 120px 0px rgba(255,255,255,0.4);
+}
+
+input[value="off"]:checked ~
+label:after {
+	content: " ";
+	width: 15px;
+	height: 15px;
+	top: 0;
+	position: absolute;
+	left: 0;
+	margin-left: 15px;
+	-webkit-border-radius: 100%;
+	   -moz-border-radius: 100%;
+		-ms-border-radius: 100%;
+		 -o-border-radius: 100%;
+			border-radius: 100%;
+	border: 2px solid rgba(255,255,255,0.03);}
+#sorpresa {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;}
+input[value="off"]:checked ~
+#lampadina #sorpresa {opacity: 0;}
+input[value="on"]:checked ~
+#lampadina #sorpresa {opacity: 1;}
+#footer {
+	position: fixed;
+	width: 94%;
+	text-align: center;
+	bottom: 30%;
+	padding: 0 3%;
+	z-index:1;}
+@-webkit-keyframes oscillaFilo {
+	from {-webkit-transform:rotate(5deg);}
+	to {-webkit-transform:rotate(-5deg);}}
+@-moz-keyframes oscillaFilo {
+	from {-moz-transform:rotate(5deg);}
+	to {-moz-transform:rotate(-5deg);}}
+@-ms-keyframes oscillaFilo {
+	from {-ms-transform:rotate(5deg);}
+	to {-ms-transform:rotate(-5deg);}}
+@-o-keyframes oscillaFilo {
+	from {-o-transform:rotate(5deg);}
+	to {-o-transform:rotate(-5deg);}}
+@keyframes oscillaFilo {
+	from {transform:rotate(5deg);}
+	to {transform:rotate(-5deg);}}
+
+@-webkit-keyframes oscillaLampadina {
+	from {-webkit-transform: rotate(3deg) translate(-16.4px,-1px);}
+	to {-webkit-transform: rotate(-3deg) translate(16.4px,-1px);}}
+@-moz-keyframes oscillaLampadina {
+	from {-moz-transform: rotate(3deg) translate(-16.4px,-1px);}
+	to {-moz-transform: rotate(-3deg) translate(16.4px,-1px);}}
+@-ms-keyframes oscillaLampadina {
+	from {-ms-transform: rotate(3deg) translate(-16.4px,-1px);}
+	to {-ms-transform: rotate(-3deg) translate(16.4px,-1px);}}
+@-o-keyframes oscillaLampadina {
+	from {-o-transform: rotate(3deg) translate(-16.4px,-1px);} 
+	to {-o-transform: rotate(-3deg) translate(16.4px,-1px);}}
+@keyframes oscillaLampadina {
+	from {transform: rotate(3deg) translate(-16.4px,-1px);}
+	to {transform: rotate(-3deg) translate(16.4px,-1px);}}
+
+@-webkit-keyframes ombraTesto {
+	from {-webkit-transform: translate(1px,0px) scale(1.01,1.06) skew(0.9deg, 0deg);} 
+	to {-webkit-transform: translate(-1px,0px) scale(1.01,1.06) skew(-0.9deg, 0deg);}}
+@-moz-keyframes ombraTesto {
+	from {-moz-transform: translate(1px,0px) scale(1.01,1.06) skew(0.9deg, 0deg);}
+	to {-moz-transform: translate(-1px,0px) scale(1.01,1.06) skew(-0.9deg, 0deg);}}
+@-ms-keyframes ombraTesto {
+	from {-ms-transform: translate(1px,0px) scale(1.01,1.06) skew(0.9deg, 0deg);} 
+	to {-ms-transform: translate(-1px,0px) scale(1.01,1.06) skew(-0.9deg, 0deg);}}
+@-o-keyframes ombraTesto {
+	from {-o-transform: translate(1px,0px) scale(1.01,1.06) skew(0.9deg, 0deg);} 
+	to {-o-transform: translate(-1px,0px) scale(1.01,1.06) skew(-0.9deg, 0deg);}}
+@keyframes ombraTesto {
+	from {transform: translate(1px,0px) scale(1.01,1.06) skew(0.9deg, 0deg);} 
+	to {transform: translate(-1px,0px) scale(1.01,1.06) skew(-0.9deg, 0deg);}}
 </style>
-
 </head>
+<body ondragstart="window.event.returnValue=false"  oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false">
 
-<body ondragstart="window.event.returnValue=false"  oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false"> 
-<h1 align="center">My First Html</h1>
-<div id="clock">
-    <p class="date">{{ date }}</p>
-    <p class="time">{{ time }}</p>
+<div id="lampadario">
+  <input type="radio" name="switch" value="on" />
+  <input type="radio" name="switch" value="off" checked="checked" />
+  <label for="switch"></label>
+  <div id="filo"></div>
+  <div id="lampadina">
+    <div id="sorpresa">
+      <div id="footer">
+        <a href="homepage.html">Look,you've found something!</a>
+      </div>
+    </div>
+  </div>
 </div>
-<hr/>
-
-<p style="ont-family:arial;color:green;font-size:20px;text-align:center;">
-Here are some web links:
-<a href="http://www.baidu.com" target="_blank" title="百度一下">Baidu</a>
-<a href="http://w3school.com.cn/" target="_blank" title="网站建设教程">w3school</a>
-<a href="http://www.17sucai.com/" target="_blank" title="网页特效`网页模板`网站模板">jQuery</a></br>
-It's a game, but only computer can play:
-<a href="airplane.html" title="飞机小游戏">Airplane</a></br>
-Periodic table of elements:
-<a href="elements.html" title="元素周期表">Elements</a>
-</p>
-
-<div class="container mt50">
-	<main>
-	
-	  	<div class="row mag-eg-row">
-		  <div class="col col-md-6">
-			<div class="mag-eg-el-wrap img-thumbnail">
-			  <div class="proportion">
-				<div mag-thumb="inner" class="mag-eg-el">
-				  <img src="img/bilibili/男孩子min.jpg" />
-				</div>
-				<div mag-zoom="inner" class="mag-eg-el">
-				  <img src="img/bilibili/男孩子max.jpg" />
-				</div>
-				<div class="filler"></div>
-			  </div>
-			</div>
-		  </div>
-		  <div class="col col-md-6">
-			<div class="mag-eg-doc">		  
-			</div>
-		  </div>
-		</div>
-		
-		<div class="row mag-eg-row">
-		  <div class="col col-md-6">
-			<div class="mag-eg-el-wrap img-thumbnail">
-			  <div class="proportion">
-				<div mag-thumb="outer" class="mag-eg-el">
-				  <img src="img/bilibili/刁民min.jpg" />
-				</div>
-				<div class="filler"></div>
-			  </div>
-			</div>
-			<div class="mag-eg-el-wrap img-thumbnail" style="height:auto;width:auto">
-			  <div style="height: 300px; width: 300px">
-				<div mag-zoom="outer" class="mag-eg-el" style="float: right;position:relative;overflow:hidden;">
-				  <img src="img/bilibili/刁民max.jpg" />
-				</div>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	
-	</main>
-</div>
-
-<address align="right">
-<var>E</var> = <var>m</var> <var>c</var><sup>2</sup><br/>
-Written by <a href="https://mail.qq.com/" target="_blank" title="QQ邮箱">804397916@qq.com</a><br/>
-My lofter <a href="http://804397916.lofter.com/" target="_blank" title="lofter">fantasy</a><br/>
-Rey Liao<br/>
-</address>
-
-<script type="text/javascript" color="255,0,255" opacity="1" zIndex="-1" count="100" src="js/jquery.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.bridget.js"></script>
-<script src="js/jquery.mousewheel.min.js"></script>
-<script src="js/jquery.event.drag.js"></script>
-<script src="js/screenfull.js"></script>
-<script src="js/hammer.min.js"></script>
-<script src="js/PreventGhostClick.js"></script>
-<script src="src/js/mag-analytics.js"></script>
-<script src="src/js/mag.js"></script>
-<script src="src/js/mag-jquery.js"></script>
-<script src="src/js/mag-control.js"></script>
-<script src="js/index.js"></script>
-<script type="text/javascript" src="js/vue.min.js"></script>
-<script>
-var clock = new Vue({el: '#clock',data: {time: '',date: ''}});
-var week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-var timerID = setInterval(updateTime, 1000);
-updateTime();
-function updateTime(){
-    var cd = new Date();
-    clock.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
-    clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth()+1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];};
-function zeroPadding(num, digit){
-    var zero = '';
-    for(var i = 0; i < digit; i++)
-	{zero += '0';}
-    return (zero + num).slice(-digit);}</script>
 
 </body>
 </html>
