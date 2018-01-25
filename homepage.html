@@ -50,7 +50,7 @@ p{margin: 0;padding: 0;}
 </head>
 
 <body ondragstart="window.event.returnValue=false"  oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false"> 
-<h1 align="center">A simple web page</h1>
+<h1 align="center">一个简单的网页</h1>
 <div id="clock">
     <p class="date">{{ date }}</p>
     <p class="time">{{ time }}</p>
@@ -58,8 +58,9 @@ p{margin: 0;padding: 0;}
 <hr/>
 
 <p style="ont-family:arial;color:green;font-size:20px;text-align:center;">
-Here are some web links:<br/>
-If you are interested in the construction site,<br/>can visit the following Web Learning<br/>
+这里有一些链接<br/>
+如果你对建设网页有兴趣<br/>
+可以访问下面的网页学习<br/>
 <a href="http://w3school.com.cn/" target="_blank" title="网站建设教程">w3school</a><br/>
 <a href="https://github.com/" target="_blank" title="开源代码库">Github</a><br/>
 <a href="http://www.17sucai.com/" target="_blank" title="网页特效`网页模板`网站模板">jQuery</a><br/>
@@ -76,36 +77,12 @@ It's Periodic table of elements,so cool:
 Written by <a href="https://mail.qq.com/" target="_blank" title="QQ邮箱">804397916@qq.com</a><br/>
 My lofter <a href="http://804397916.lofter.com/" target="_blank" title="lofter">fantasy</a><br/>
 Rey Liao<br/>
+<a href="https://github.com/ReyLiao/ReyLiao.github.io" target="_blank" title="网站源码">我的网站源码</a><br/>
 </address>
 
 <script type="text/javascript" color="255,0,255" opacity="1" zIndex="-1" count="100" src="js/jquery.js"></script>
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.bridget.js"></script>
-<script src="js/jquery.mousewheel.min.js"></script>
-<script src="js/jquery.event.drag.js"></script>
-<script src="js/screenfull.js"></script>
-<script src="js/hammer.min.js"></script>
-<script src="js/PreventGhostClick.js"></script>
-<script src="src/js/mag-analytics.js"></script>
-<script src="src/js/mag.js"></script>
-<script src="src/js/mag-jquery.js"></script>
-<script src="src/js/mag-control.js"></script>
-<script src="js/index.js"></script>
 <script type="text/javascript" src="js/vue.min.js"></script>
-<script>
-var clock = new Vue({el: '#clock',data: {time: '',date: ''}});
-var week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-var timerID = setInterval(updateTime, 1000);
-updateTime();
-function updateTime(){
-    var cd = new Date();
-    clock.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
-    clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth()+1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];};
-function zeroPadding(num, digit){
-    var zero = '';
-    for(var i = 0; i < digit; i++)
-	{zero += '0';}
-    return (zero + num).slice(-digit);}</script>
+<script type="text/javascript" src="js/time.js"></script>
 
 </body>
 </html>
