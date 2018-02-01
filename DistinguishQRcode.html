@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+
+		<title>识别二维码</title>
+		
+		<link rel="shortcut icon" href="img/apple.ico" type="image/x-icon"/>
+		
+		<style type="text/css">
+			
+			body{margin: 0;}
+			.module-content{
+				width: 100%;
+				color: #000;
+				margin: 0 auto;
+			}
+			a:link,a:visited{
+			 text-decoration:none;
+			}
+			.module-head{
+				text-align: center;
+				font-weight: 500;
+				margin: 0;
+				font-size: 30px;
+				height: 100px;
+				line-height: 100px;
+				color: #000;
+			}			
+			.url-box{
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+			}
+			#file{
+				position: absolute;
+				width: 120px;
+				height: 120px;
+				opacity: 0.1;
+				top: 0;
+				left: 0;
+				overflow: hidden;
+				z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="module-content">
+			<!--解析二维码-->
+			<h1 class="module-head">解析二维码</h1>
+			<p style="text-align: center;">
+			<a href="homepage.html"><button>返回</button></a>
+			</p>
+			<hr/>		
+			<div style="position: fixed;left: 47%;">				
+				<div style="position: absolute;">
+					<img style="width: 120px;height: 120px;" src="img/tu.png"/>
+					<input type="file" onChange="getUrl(this,'file-url')" name="" id="file" value="" />
+					<p class="url-box" id="urlBox"></p>
+				</div>
+			</div>			
+		</div>
+		
+		<script src="js/QRcode/llqrcode.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/QRcode/analyticCode.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function getUrl(e,param){
+				analyticCode.getUrl(param,e,function(url1,url2){
+					e.nextElementSibling.innerHTML = url1;
+					e.previousElementSibling.src = url2;
+				});
+			}
+		</script>
+	</body>
+</html>
