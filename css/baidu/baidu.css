@@ -1,0 +1,27 @@
+body{
+	margin: 220px;
+	min-width: 660px
+}
+section{
+	text-align:center;
+}
+section input{
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+section input[type=text]{
+	width: 35em;
+	height: 30px;
+	padding-left: 0.5em;
+}
+section input[type=button]{
+	background-color: blue;
+	width: 6em;
+	height: 36px;
+	color: white;
+}
+section .center,.center_left,.center_right{display: inline-block;}
+.center_left{border: 1px solid gray;border-right: 0px;float: left;height: 36px;line-height: 36px;}
+.center_right{float: left;height: 36px;border: 1px solid blue;border-left: 0px;}
