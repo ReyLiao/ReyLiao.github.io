@@ -1,6 +1,6 @@
 function getHash(){if(location.hash)
 return location.hash.substring(1);return '';}
-if($(window).width()<770){var get_answer=confirm("本站暂不支持手机！\n\n----------\n点击[是]，将跳转到必应手机版。");if(get_answer){var hash=getHash();if(hash)
+if($(window).width()<770){var get_answer=confirm("本站暂不支持手机！\n\n点击[是]，将跳转到必应手机版。");if(get_answer){var hash=getHash();if(hash)
 window.location.href="https://cn.bing.com/search?setmkt=zh-cn&setlang=zh-cn&q="+hash;else
 window.location.href="https://cn.bing.com/";}}
 var soinput_obj=$('#soinput'),objProgress=$('div.progress>div'),obja=$('#a'),objb=$('#b'),obj_autoSO=$('#autoSO'),autoSO=true;var need_respond=true;var obj_list1_buttons=$("td.set-list-1 button"),obj_list2_buttons=$("td.set-list-2 button");var set_url=[],set_top=[0,0],set_left=[0,0],set_foot=[0,0];respond();if(localStorage["jbtn_autoSO"]===undefined){localStorage["jbtn_autoSO"]=true;obj_autoSO[0].checked=true;autoSO=true;}else{obj_autoSO[0].checked=localStorage["jbtn_autoSO"]==='true';autoSO=obj_autoSO[0].checked;}
