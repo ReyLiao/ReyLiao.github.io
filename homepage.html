@@ -6,81 +6,38 @@
 <title>Fantasy</title>
 <link rel="shortcut icon" href="img/apple.ico" type="image/x-icon"/>
 <link rel="stylesheet" href="css/homepage/bootstrap.min.css" />
-<link rel="stylesheet" href="css/homepage/mag.css" />
-<link rel="stylesheet" href="css/homepage/default.css" />
-<link rel="stylesheet" href="css/homepage/index.css" />
-<style type="text/css">
-.controls-btns button{color: #333;}
-.mt50{margin-top: 50px;}
-html, body{height: 100%;}
-body{
-	background: #0f3854;
-	background: -webkit-radial-gradient(center ellipse, #0a2e38 0%, #000000 70%);
-	background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
-	background-size: 100%;}
-p{margin: 0;padding: 0;}
-#clock{
-	font-family: 'Share Tech Mono', monospace;
-	color: #ffffff;
-	text-align: center;
-	color: #FFFF00;
-	text-shadow: 0 0 5px #FFA500, 0 0 20px rgba(10, 175, 230, 0);}
-  
-#clock .time{
-	letter-spacing: 0.05em;
-	font-size: 42px;
-	padding: 0;}
-  
-#clock .date{
-	letter-spacing: 0.1em;
-	font-size: 17px;}
+<style>
+	body{background:#B0C4DE;background-size:100%;}
+	p{margin: 10;text-align:center;}
 </style>
 </head>
 <body ondragstart="window.event.returnValue=false"  oncontextmenu="window.event.returnValue=false" onselectstart="event.returnValue=false"> 
-<h1 align="center">A simple web page</h1>
-<hr/>
-<div id="clock">
-<p class="date">{{ date }}</p>
-<p class="time">{{ time }}</p>
-</div>
-<hr/>
-<p style="ont-family:arial;color:green;font-size:20px;text-align:center;">
---- 小游戏	---<br/>
-2048:
-<a href="2048.html" title="2048">2048</a><br/>
-五子棋:
-<a href="gobang.html" title="五子棋">Gobang</a><br/>
-</p>
-<hr/>
-<p style="ont-family:arial;color:green;font-size:20px;text-align:center;">
---- 小程序	---<br/>
-元素周期表:
-<a href="elements.html" title="元素周期表">Elements</a><br/>
-生成二维码：
-<a href="GenerateQRcode.html" title="生成二维码">GenerateQRcode</a><br/>
-解析二维码：
-<a href="DistinguishQRcode.html" title="解析二维码">DistinguishQRcode</a><br/>
-</p>
-<hr/>
-<p style="ont-family:arial;color:green;font-size:20px;text-align:center;">
---- 杂货丶 ---<br/>
-简历:
-<a href="resume.html" title="简历">Resume</a><br/>
-百度:
-<a href="baidu.html" title="百度">Baidu</a><br/>
-聚合搜索:
-<a href="sou.html" title="聚合搜索">Sou</a><br/>
-</p>
-<address align="right">
-<br/><br/><br/><br/><br/>
-<var>E = mc<sup>2</sup></var><br/>
-Written by <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=I1FGWk9KQkxjRUxbTkJKTw1ATE4" title="reyliao@foxmail.com">reyliao</a><br/>
-My lofter <a href="http://804397916.lofter.com/" target="_blank" title="lofter">fantasy</a><br/>
-<a href="https://github.com/ReyLiao/ReyLiao.github.io" target="_blank" title="网站源码">网站源码</a><br/>
-Rey Liao<br/>
-</address>
-<script type="text/javascript" color="255,0,255" opacity="1" zIndex="-1" count="100" src="js/homepage/jquery.js"></script>
-<script type="text/javascript" src="js/homepage/vue.min.js"></script>
-<script type="text/javascript" src="js/homepage/time.js"></script>
+	<h1 style="color:#DCDCDC;text-align:center">A simple web page</h1><br/>
+	<div id="clock">
+		<p style="color:#FFA500;font-size:17px;">{{ date }}</p>
+		<p style="color:#FFA500;font-size:42px;">{{ time }}</p>
+	</div><br/>
+	<p style="color:green;font-size:20px;">
+		---小游戏---<br/>
+		2048：<a href="2048.html" title="2048">2048</a><br/>
+		五子棋：<a href="gobang.html" title="五子棋">Gobang</a><br/><br/>
+		--- 小程序	---<br/>
+		元素周期表：<a href="elements.html" title="元素周期表">Elements</a><br/>
+		生成二维码：<a href="GenerateQRcode.html" title="生成二维码">GenerateQRcode</a><br/>
+		解析二维码：<a href="DistinguishQRcode.html" title="解析二维码">DistinguishQRcode</a><br/><br/>
+		--- 杂货丶 ---<br/>
+		简历：<a href="resume.html" title="简历">Resume</a><br/>
+		百度：<a href="baidu.html" title="百度">Baidu</a><br/>
+		聚合搜索：<a href="sou.html" title="聚合搜索">Sou</a><br/>
+	</p>
+	<address style="color:#DCDCDC;text-align:right">
+		<br/><br/><br/><br/><br/><var>E = mc<sup>2</sup></var><br/>
+		Written by <a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=reyliao@foxmail.com" title="reyliao@foxmail.com">reyliao</a><br/>
+		My lofter <a href="http://804397916.lofter.com/" target="_blank" title="lofter">fantasy</a><br/>
+		<a href="https://github.com/ReyLiao/ReyLiao.github.io" target="_blank" title="网站源码">网站源码</a><br/>
+		Rey Liao<br/>
+	</address>
+	<script type="text/javascript"color="0,0,0"opacity="1"zIndex="-1"count="100"src="js/homepage/jquery.js"></script>
+	<script type="text/javascript"src="js/homepage/time.js"></script>
 </body>
 </html>
